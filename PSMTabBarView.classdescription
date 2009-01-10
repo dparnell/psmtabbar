@@ -1,0 +1,13 @@
+{
+	Actions = {
+		// Define action descriptions here, for example
+		// "myAction:" = id;
+	};
+	Outlets = {
+		delegate = NSObject;
+		tabView = NSTabView;
+		partnerView = id;
+	};
+    ClassName = PSMTabBarControl; 
+    SuperClass = NSControl; 
+}
