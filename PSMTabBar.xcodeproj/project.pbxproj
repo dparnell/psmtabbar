@@ -128,11 +128,11 @@
 			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
 			remoteInfo = PSMTabBarFramework;
 		};
-		546DEAEF067F62F70098DCC4 /* PBXContainerItemProxy */ = {
+		65140D920FE37D4600D862D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
 			remoteInfo = PSMTabBarFramework;
 		};
 /* End PBXContainerItemProxy section */
@@ -528,7 +528,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				546DEAF0067F62F70098DCC4 /* PBXTargetDependency */,
+				65140D930FE37D4600D862D2 /* PBXTargetDependency */,
 			);
 			name = PSMTabBar;
 			productInstallPath = "$(HOME)/Developer/Palettes";
@@ -666,10 +666,10 @@
 			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
 			targetProxy = 53DF6904067E5B930090B5B0 /* PBXContainerItemProxy */;
 		};
-		546DEAF0067F62F70098DCC4 /* PBXTargetDependency */ = {
+		65140D930FE37D4600D862D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
-			targetProxy = 546DEAEF067F62F70098DCC4 /* PBXContainerItemProxy */;
+			targetProxy = 65140D920FE37D4600D862D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

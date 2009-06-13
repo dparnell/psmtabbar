@@ -1,26 +1,77 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            CLASS = PSMTabBarControlInspector; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                "_allowsBackgroundTabClosing" = NSButton; 
-                "_automaticallyAnimates" = NSButton; 
-                "_canCloseOnlyTab" = NSButton; 
-                "_cellMaxWidth" = NSTextField; 
-                "_cellMinWidth" = NSTextField; 
-                "_cellOptimumWidth" = NSTextField; 
-                "_disableTabClose" = NSButton; 
-                "_hideForSingleTab" = NSButton; 
-                "_selectsTabsOnMouseDown" = NSButton; 
-                "_showAddTab" = NSButton; 
-                "_sizeToFit" = NSButton; 
-                "_stylePopUp" = NSPopUpButton; 
-                "_useOverflowMenu" = NSButton; 
-            }; 
-            SUPERCLASS = IBInspector; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>CLASS</key>
+			<string>NSApplication</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSResponder</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>ok</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSMTabBarInspector</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>_allowsBackgroundTabClosing</key>
+				<string>NSButton</string>
+				<key>_automaticallyAnimates</key>
+				<string>NSButton</string>
+				<key>_canCloseOnlyTab</key>
+				<string>NSButton</string>
+				<key>_canDragTabs</key>
+				<string>NSButton</string>
+				<key>_cellMaxWidth</key>
+				<string>NSTextField</string>
+				<key>_cellMinWidth</key>
+				<string>NSTextField</string>
+				<key>_cellOptimumWidth</key>
+				<string>NSTextField</string>
+				<key>_disableTabClose</key>
+				<string>NSButton</string>
+				<key>_hideForSingleTab</key>
+				<string>NSButton</string>
+				<key>_selectsTabsOnMouseDown</key>
+				<string>NSButton</string>
+				<key>_showAddTab</key>
+				<string>NSButton</string>
+				<key>_sizeToFit</key>
+				<string>NSButton</string>
+				<key>_stylePopUp</key>
+				<string>NSPopUpButton</string>
+				<key>_useOverflowMenu</key>
+				<string>NSButton</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>IBInspector</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

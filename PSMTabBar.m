@@ -9,7 +9,16 @@
 #import "PSMTabBar.h"
 
 @implementation PSMTabBar
+
 - (NSArray *)libraryNibNames {
+	NSBundle* frameworkBundle;
+	NSString* path;
+	
+	NSLog(@"Loading the PSMTabBar framework");
+	path = [[NSBundle bundleForClass: [PSMTabBar class]] bundlePath];
+	frameworkBundle = [[NSBundle alloc] initWithPath: [[path stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]];
+	[frameworkBundle load];
+	
     return [NSArray arrayWithObject:@"PSMTabBarLibrary"];
 }
 
