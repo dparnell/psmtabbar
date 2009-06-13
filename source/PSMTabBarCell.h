@@ -14,7 +14,6 @@
 
 @interface PSMTabBarCell : NSActionCell {
     // sizing
-    PSMTabBarControl    *_MyControlView;
     NSRect              _frame;
     NSSize              _stringSize;
     int                 _currentStep;
@@ -31,7 +30,10 @@
     BOOL                _hasCloseButton;
     BOOL                _isCloseButtonSuppressed;
     BOOL                _hasIcon;
+	BOOL				_hasLargeImage;
     int                 _count;
+	NSColor				*_countColor;
+    BOOL                _isEdited;
 }
 
 // creation/destruction
@@ -67,12 +69,18 @@
 - (BOOL)isCloseButtonSuppressed;
 - (BOOL)hasIcon;
 - (void)setHasIcon:(BOOL)value;
+- (BOOL)hasLargeImage;
+- (void)setHasLargeImage:(BOOL)value;
 - (int)count;
 - (void)setCount:(int)value;
+- (NSColor *)countColor;
+- (void)setCountColor:(NSColor *)value;
 - (BOOL)isPlaceholder;
 - (void)setIsPlaceholder:(BOOL)value;
 - (int)currentStep;
 - (void)setCurrentStep:(int)value;
+- (BOOL)isEdited;
+- (void)setIsEdited:(BOOL)value;
 
 // component attributes
 - (NSRect)indicatorRectForFrame:(NSRect)cellFrame;
@@ -88,7 +96,7 @@
 - (void)mouseExited:(NSEvent *)theEvent;
 
 // drag support
-- (NSImage*)dragImageForRect:(NSRect)cellFrame;
+- (NSImage *)dragImage;
 
 // archiving
 - (void)encodeWithCoder:(NSCoder *)aCoder;
@@ -99,5 +107,11 @@
 @interface PSMTabBarControl (CellAccessors)
 
 - (id<PSMTabStyle>)style;
+
+@end
+
+@interface NSObject (IdentifierAccesors)
+
+- (NSImage *)largeImage;
 
 @end

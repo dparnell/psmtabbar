@@ -12,11 +12,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PSMTabBarControl.h"
-@class PSMTabBarCell;
-@class PSMTabDragWindow;
 
 #define kPSMTabDragAnimationSteps 8
-#define PI 3.1417
+
+@class PSMTabBarCell, PSMTabDragWindowController;
 
 @interface PSMTabDragAssistant : NSObject {
     PSMTabBarControl            *_sourceTabBar;
@@ -25,7 +24,14 @@
     PSMTabBarCell               *_draggedCell;
     int                         _draggedCellIndex;   // for snap back
     BOOL                        _isDragging;
-    
+	
+	// Support for dragging into new windows
+	PSMTabDragWindowController	*_draggedTab, *_draggedView;
+	NSSize						_dragWindowOffset;
+	NSTimer						*_fadeTimer;
+	BOOL						_centersDragWindows;
+	PSMTabBarTearOffStyle		_currentTearOffStyle;
+	
     // Animation
     NSTimer                     *_animationTimer;
     NSMutableArray              *_sineCurveWidths;
@@ -61,6 +67,9 @@
 - (void)draggedImageEndedAt:(NSPoint)aPoint operation:(NSDragOperation)operation;
 - (void)finishDrag;
 
+- (void)draggingBeganAt:(NSPoint)aPoint;
+- (void)draggingMovedTo:(NSPoint)aPoint;
+
 // Animation
 - (void)animateDrag:(NSTimer *)timer;
 - (void)calculateDragAnimationForTabBar:(PSMTabBarControl *)control;
@@ -81,4 +90,11 @@
 - (PSMTabBarCell *)lastVisibleTab;
 - (int)numberOfVisibleTabs;
 
+@end
+
+void CGContextCopyWindowCaptureContentsToRect(void *grafport, CGRect rect, int cid, int wid, int zero);
+OSStatus CGSSetWindowTransform(int cid, int wid, CGAffineTransform transform); 
+
+@interface NSApplication (CoreGraphicsUndocumented)
+- (int)contextID;
 @end

@@ -25,6 +25,7 @@
     // put up a window
     WindowController *newWindow = [[WindowController alloc] initWithWindowNibName:@"Window"];
     [newWindow showWindow:self];
+	[newWindow addDefaultTabs];
 }
 
 @end

@@ -17,4 +17,11 @@
     [(PSMTabBarControl *)[self superview] update];
 }
 
+- (void)stopAnimation:(id)sender
+{
+	[NSObject cancelPreviousPerformRequestsWithTarget:self
+											 selector:@selector(startAnimation:)
+											   object:nil];
+	[super stopAnimation:sender];
+}
 @end

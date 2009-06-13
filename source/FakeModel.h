@@ -13,8 +13,8 @@
     BOOL                    _isProcessing;
     NSImage                 *_icon;
     NSString                *_iconName;
-    NSObjectController      *controller;
     int                     _objectCount;
+    BOOL                    _isEdited;
 }
 
 // creation/destruction
@@ -29,6 +29,7 @@
 - (void)setIconName:(NSString *)iconName;
 - (int)objectCount;
 - (void)setObjectCount:(int)value;
-- (NSObjectController *)controller;
+- (BOOL)isEdited;
+- (void)setIsEdited:(BOOL)value;
 
 @end

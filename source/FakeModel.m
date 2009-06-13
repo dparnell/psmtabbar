@@ -13,12 +13,12 @@
 
 - (id)init
 {
-    if(self == [super init]){
-        _isProcessing = YES;
+    if ( (self == [super init]) ) {
+        _isProcessing = NO;
         _icon = nil;
         _iconName = nil;
         _objectCount = 2;
-        controller = [[NSObjectController alloc] initWithContent:self];
+        _isEdited = NO;
     }
     return self;
 }
@@ -69,9 +69,27 @@
     _objectCount = value;
 }
 
-- (NSObjectController *)controller
+- (BOOL)isEdited
 {
-    return controller;
+    return _isEdited;
+}
+
+- (void)setIsEdited:(BOOL)value
+{
+    _isEdited = value;
+}
+
+
+- (NSImage *)largeImage
+{
+    return [NSImage imageNamed:@"largeImage"];
+}
+
+- (void)setLargeImage:(NSImage *)icon
+{
+    [icon retain];
+    [_icon release];
+    _icon = icon;
 }
 
 @end

@@ -25,9 +25,12 @@
 
 - (id) init
 {
-    if((self = [super init]))
-    {
+    if ( (self = [super init]) ) {
         [self loadImages];
+        
+        _objectCountStringAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:[[NSFontManager sharedFontManager] convertFont:[NSFont fontWithName:@"Helvetica" size:11.0] toHaveTrait:NSBoldFontMask], NSFontAttributeName,
+																					[[NSColor whiteColor] colorWithAlphaComponent:0.85], NSForegroundColorAttributeName,
+																					nil, nil];
     }
     return self;
 }
@@ -57,6 +60,10 @@
     aquaCloseButtonDown = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabClose_Front_Pressed"]];
     aquaCloseButtonOver = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabClose_Front_Rollover"]];
     
+    aquaCloseDirtyButton = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabCloseDirty_Front"]];
+    aquaCloseDirtyButtonDown = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabCloseDirty_Front_Pressed"]];
+    aquaCloseDirtyButtonOver = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabCloseDirty_Front_Rollover"]];
+        
     _addTabButtonImage = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabNew"]];
     _addTabButtonPressedImage = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabNewPressed"]];
     _addTabButtonRolloverImage = [[NSImage alloc] initByReferencingFile:[[PSMTabBarControl bundle] pathForImageResource:@"AquaTabNewRollover"]];
@@ -71,9 +78,14 @@
     [aquaCloseButton release];
     [aquaCloseButtonDown release];
     [aquaCloseButtonOver release];
+    [aquaCloseDirtyButton release];
+    [aquaCloseDirtyButtonDown release];
+    [aquaCloseDirtyButtonOver release];
     [_addTabButtonImage release];
     [_addTabButtonPressedImage release];
     [_addTabButtonRolloverImage release];
+    
+    [_objectCountStringAttributes release];
     
     [super dealloc];
 }
@@ -89,6 +101,16 @@
 - (float)rightMarginForTabBarControl
 {
     return 24.0f;
+}
+
+- (float)topMarginForTabBarControl
+{
+	return 0.0f;
+}
+
+- (void)setOrientation:(PSMTabBarOrientation)value
+{
+
 }
 
 #pragma mark -
@@ -112,10 +134,13 @@
 #pragma mark -
 #pragma mark Cell Specifics
 
-- (NSRect)closeButtonRectForTabCell:(PSMTabBarCell *)cell
+- (NSRect)dragRectForTabCell:(PSMTabBarCell *)cell orientation:(PSMTabBarOrientation)orientation
 {
-    NSRect cellFrame = [cell frame];
-    
+	return [cell frame];
+}
+
+- (NSRect)closeButtonRectForTabCell:(PSMTabBarCell *)cell withFrame:(NSRect)cellFrame
+{
     if ([cell hasCloseButton] == NO) {
         return NSZeroRect;
     }
@@ -141,8 +166,9 @@
     result.origin.x = cellFrame.origin.x + MARGIN_X;
     result.origin.y = cellFrame.origin.y + MARGIN_Y;
     
-    if([cell hasCloseButton] && ![cell isCloseButtonSuppressed])
+    if ([cell hasCloseButton] && ![cell isCloseButtonSuppressed]) {
         result.origin.x += [aquaCloseButton size].width + kPSMTabBarCellPadding;
+    }
     
     return result;
 }
@@ -173,16 +199,18 @@
     
     float countWidth = [[self attributedObjectCountValueForTabCell:cell] size].width;
     countWidth += (2 * kPSMAquaObjectCounterRadius - 6.0);
-    if(countWidth < kPSMAquaCounterMinWidth)
+    if (countWidth < kPSMAquaCounterMinWidth) {
         countWidth = kPSMAquaCounterMinWidth;
+    }
     
     NSRect result;
     result.size = NSMakeSize(countWidth, 2 * kPSMAquaObjectCounterRadius); // temp
     result.origin.x = cellFrame.origin.x + cellFrame.size.width - MARGIN_X - result.size.width;
     result.origin.y = cellFrame.origin.y + MARGIN_Y + 1.0;
     
-    if(![[cell indicator] isHidden])
+    if (![[cell indicator] isHidden]) {
         result.origin.x -= kPSMTabBarIndicatorWidth + kPSMTabBarCellPadding;
+    }
     
     return result;
 }
@@ -199,19 +227,22 @@
         resultWidth += [aquaCloseButton size].width + kPSMTabBarCellPadding;
     
     // icon?
-    if([cell hasIcon])
+    if ([cell hasIcon]) {
         resultWidth += kPSMTabBarIconWidth + kPSMTabBarCellPadding;
+    }
     
     // the label
     resultWidth += kPSMMinimumTitleWidth;
     
     // object counter?
-    if([cell count] > 0)
+    if ([cell count] > 0) {
         resultWidth += [self objectCounterRectForTabCell:cell].size.width + kPSMTabBarCellPadding;
+    }
     
     // indicator?
-    if ([[cell indicator] isHidden] == NO)
+    if ([[cell indicator] isHidden] == NO) {
         resultWidth += kPSMTabBarCellPadding + kPSMTabBarIndicatorWidth;
+    }
     
     // right margin
     resultWidth += MARGIN_X;
@@ -227,23 +258,27 @@
     resultWidth = MARGIN_X;
     
     // close button?
-    if ([cell hasCloseButton] && ![cell isCloseButtonSuppressed])
+    if ([cell hasCloseButton] && ![cell isCloseButtonSuppressed]) {
         resultWidth += [aquaCloseButton size].width + kPSMTabBarCellPadding;
+    }
     
     // icon?
-    if([cell hasIcon])
+    if ([cell hasIcon]) {
         resultWidth += kPSMTabBarIconWidth + kPSMTabBarCellPadding;
+    }
     
     // the label
     resultWidth += [[cell attributedStringValue] size].width;
     
     // object counter?
-    if([cell count] > 0)
+    if ([cell count] > 0) {
         resultWidth += [self objectCounterRectForTabCell:cell].size.width + kPSMTabBarCellPadding;
+    }
     
     // indicator?
-    if ([[cell indicator] isHidden] == NO)
+    if ([[cell indicator] isHidden] == NO) {
         resultWidth += kPSMTabBarCellPadding + kPSMTabBarIndicatorWidth;
+    }
     
     // right margin
     resultWidth += MARGIN_X;
@@ -251,26 +286,18 @@
     return ceil(resultWidth);
 }
 
+- (float)tabCellHeight
+{
+	return kPSMTabBarControlHeight;
+}
+
 #pragma mark -
 #pragma mark Cell Values
 
 - (NSAttributedString *)attributedObjectCountValueForTabCell:(PSMTabBarCell *)cell
 {
-    NSMutableAttributedString *attrStr;
-    NSFontManager *fm = [NSFontManager sharedFontManager];
-    NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
-    [nf setLocalizesFormat:YES];
-    [nf setFormat:@"0"];
-    [nf setHasThousandSeparators:YES];
-    NSString *contents = [nf stringFromNumber:[NSNumber numberWithInt:[cell count]]];
-    attrStr = [[[NSMutableAttributedString alloc] initWithString:contents] autorelease];
-    NSRange range = NSMakeRange(0, [contents length]);
-    
-    // Add font attribute
-    [attrStr addAttribute:NSFontAttributeName value:[fm convertFont:[NSFont fontWithName:@"Helvetica" size:11.0] toHaveTrait:NSBoldFontMask] range:range];
-    [attrStr addAttribute:NSForegroundColorAttributeName value:[[NSColor whiteColor] colorWithAlphaComponent:0.85] range:range];
-    
-    return attrStr;
+    NSString *contents = [NSString stringWithFormat:@"%i", [cell count]];
+    return [[[NSMutableAttributedString alloc] initWithString:contents attributes:_objectCountStringAttributes] autorelease];
 }
 
 - (NSAttributedString *)attributedStringValueForTabCell:(PSMTabBarCell *)cell
@@ -317,7 +344,7 @@
             currentTint = NSClearControlTint;
         
         NSImage *bgImage;
-        switch(currentTint){
+        switch (currentTint) {
             case NSGraphiteControlTint:
                 bgImage = aquaTabBgDownGraphite;
                 break;
@@ -357,12 +384,26 @@
     [self drawInteriorWithTabCell:cell inView:[cell controlView]];
 }
 
+- (void)drawBackgroundInRect:(NSRect)rect
+{
+	if (rect.size.height <= 22.0) {
+		//Draw for our whole bounds; it'll be automatically clipped to fit the appropriate drawing area
+		rect = [tabBar bounds];
+
+		[aquaTabBg drawInRect:rect fromRect:NSMakeRect(0.0, 0.0, 1.0, 22.0) operation:NSCompositeSourceOver fraction:1.0];
+	}
+}
+
 - (void)drawTabBar:(PSMTabBarControl *)bar inRect:(NSRect)rect
 {
-    [aquaTabBg drawInRect:rect fromRect:NSMakeRect(0.0, 0.0, 1.0, 22.0) operation:NSCompositeSourceOver fraction:1.0];
+	if (tabBar != bar) {
+		tabBar = bar;
+	}
+
+	[self drawBackgroundInRect:rect];
     
     // no tab view == not connected
-    if(![bar tabView]){
+    if (![bar tabView]) {
         NSRect labelRect = rect;
         labelRect.size.height -= 4.0;
         labelRect.origin.y += 4.0;
@@ -384,8 +425,8 @@
     // Draw cells
     NSEnumerator *e = [[bar cells] objectEnumerator];
     PSMTabBarCell *cell;
-    while(cell = [e nextObject]){
-        if(![cell isInOverflowMenu]){
+    while ( (cell = [e nextObject]) ) {
+        if ([bar isAnimating] || (![cell isInOverflowMenu] && NSIntersectsRect([cell frame], rect))) {
             [cell drawWithFrame:[cell frame] inView:bar];
         }
     }
@@ -397,17 +438,19 @@
     float labelPosition = cellFrame.origin.x + MARGIN_X;
     
     // close button
-    if([cell hasCloseButton] && ![cell isCloseButtonSuppressed]) {
+    if ([cell hasCloseButton] && ![cell isCloseButtonSuppressed]) {
         NSSize closeButtonSize = NSZeroSize;
         NSRect closeButtonRect = [cell closeButtonRectForFrame:cellFrame];
         NSImage *closeButton = nil;
         
-        closeButton = aquaCloseButton;
-        if([cell closeButtonOver]) closeButton = aquaCloseButtonOver;
-        if([cell closeButtonPressed]) closeButton = aquaCloseButtonDown;
+        closeButton = [cell isEdited] ? aquaCloseDirtyButton : aquaCloseButton;
+        
+        if ([cell closeButtonOver]) closeButton = [cell isEdited] ? aquaCloseDirtyButtonOver : aquaCloseButtonOver;
+        if ([cell closeButtonPressed]) closeButton = [cell isEdited] ? aquaCloseDirtyButtonDown : aquaCloseButtonDown;
         
         closeButtonSize = [closeButton size];
-        if([controlView isFlipped]) {
+        
+        if ([controlView isFlipped]) {
             closeButtonRect.origin.y += closeButtonRect.size.height;
         }
         
@@ -418,21 +461,42 @@
     }
     
     // icon
-    if([cell hasIcon]){
+    if ([cell hasIcon]) {
         NSRect iconRect = [self iconRectForTabCell:cell];
-        NSImage *icon = [[[[cell representedObject] identifier] content] icon];
+        NSImage *icon = [[[cell representedObject] identifier] icon];
         if ([controlView isFlipped]) {
-            iconRect.origin.y = cellFrame.size.height - iconRect.origin.y;
+            iconRect.origin.y += iconRect.size.height;
         }
+        
+        // center in available space (in case icon image is smaller than kPSMTabBarIconWidth)
+        if ([icon size].width < kPSMTabBarIconWidth) {
+            iconRect.origin.x += (kPSMTabBarIconWidth - [icon size].width) / 2.0;
+        }
+        
+        if ([icon size].height < kPSMTabBarIconWidth) {
+            iconRect.origin.y -= (kPSMTabBarIconWidth - [icon size].height) / 2.0;
+        }
+        
         [icon compositeToPoint:iconRect.origin operation:NSCompositeSourceOver fraction:1.0];
         
         // scoot label over
         labelPosition += iconRect.size.width + kPSMTabBarCellPadding;
     }
     
+    // label rect
+    NSRect labelRect;
+    labelRect.origin.x = labelPosition;
+    labelRect.size.width = cellFrame.size.width - (labelRect.origin.x - cellFrame.origin.x) - kPSMTabBarCellPadding;
+    labelRect.size.height = cellFrame.size.height;
+    labelRect.origin.y = cellFrame.origin.y + MARGIN_Y + 1.0;
+    
+    if (![[cell indicator] isHidden]) {
+        labelRect.size.width -= (kPSMTabBarIndicatorWidth + kPSMTabBarCellPadding);
+    }
+    
     // object counter
-    if([cell count] > 0){
-        [[NSColor colorWithCalibratedWhite:0.3 alpha:0.45] set];
+    if ([cell count] > 0) {
+        [[cell countColor] ?: [NSColor colorWithCalibratedWhite:0.3 alpha:0.45] set];
         NSBezierPath *path = [NSBezierPath bezierPath];
         NSRect myRect = [self objectCounterRectForTabCell:cell];
         [path moveToPoint:NSMakePoint(myRect.origin.x + kPSMAquaObjectCounterRadius, myRect.origin.y)];
@@ -449,21 +513,9 @@
         counterStringRect.origin.x = myRect.origin.x + ((myRect.size.width - counterStringRect.size.width) / 2.0) + 0.25;
         counterStringRect.origin.y = myRect.origin.y + ((myRect.size.height - counterStringRect.size.height) / 2.0) + 0.5;
         [counterString drawInRect:counterStringRect];
+        
+        labelRect.size.width -= myRect.size.width + kPSMTabBarCellPadding;
     }
-    
-    
-    // label rect
-    NSRect labelRect;
-    labelRect.origin.x = labelPosition;
-    labelRect.size.width = cellFrame.size.width - (labelRect.origin.x - cellFrame.origin.x) - kPSMTabBarCellPadding;
-    labelRect.size.height = cellFrame.size.height;
-    labelRect.origin.y = cellFrame.origin.y + MARGIN_Y + 1.0;
-    
-    if(![[cell indicator] isHidden])
-        labelRect.size.width -= (kPSMTabBarIndicatorWidth + kPSMTabBarCellPadding);
-    
-    if([cell count] > 0)
-        labelRect.size.width -= ([self objectCounterRectForTabCell:cell].size.width + kPSMTabBarCellPadding);
     
     // Draw Label
     [[cell attributedStringValue] drawInRect:labelRect];
@@ -484,6 +536,9 @@
         [aCoder encodeObject:aquaCloseButton forKey:@"aquaCloseButton"];
         [aCoder encodeObject:aquaCloseButtonDown forKey:@"aquaCloseButtonDown"];
         [aCoder encodeObject:aquaCloseButtonOver forKey:@"aquaCloseButtonOver"];
+        [aCoder encodeObject:aquaCloseDirtyButton forKey:@"aquaCloseDirtyButton"];
+        [aCoder encodeObject:aquaCloseDirtyButtonDown forKey:@"aquaCloseDirtyButtonDown"];
+        [aCoder encodeObject:aquaCloseDirtyButtonOver forKey:@"aquaCloseDirtyButtonOver"];
         [aCoder encodeObject:_addTabButtonImage forKey:@"addTabButtonImage"];
         [aCoder encodeObject:_addTabButtonPressedImage forKey:@"addTabButtonPressedImage"];
         [aCoder encodeObject:_addTabButtonRolloverImage forKey:@"addTabButtonRolloverImage"];
@@ -503,6 +558,9 @@
             aquaCloseButton = [[aDecoder decodeObjectForKey:@"aquaCloseButton"] retain];
             aquaCloseButtonDown = [[aDecoder decodeObjectForKey:@"aquaCloseButtonDown"] retain];
             aquaCloseButtonOver = [[aDecoder decodeObjectForKey:@"aquaCloseButtonOver"] retain];
+            aquaCloseDirtyButton = [[aDecoder decodeObjectForKey:@"aquaCloseDirtyButton"] retain];
+            aquaCloseDirtyButtonDown = [[aDecoder decodeObjectForKey:@"aquaCloseDirtyButtonDown"] retain];
+            aquaCloseDirtyButtonOver = [[aDecoder decodeObjectForKey:@"aquaCloseDirtyButtonOver"] retain];
             _addTabButtonImage = [[aDecoder decodeObjectForKey:@"addTabButtonImage"] retain];
             _addTabButtonPressedImage = [[aDecoder decodeObjectForKey:@"addTabButtonPressedImage"] retain];
             _addTabButtonRolloverImage = [[aDecoder decodeObjectForKey:@"addTabButtonRolloverImage"] retain];

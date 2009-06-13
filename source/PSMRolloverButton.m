@@ -10,13 +10,39 @@
 
 @implementation PSMRolloverButton
 
+- (void)awakeFromNib
+{
+	if ([[self superclass] instancesRespondToSelector:@selector(awakeFromNib)]) {
+        [super awakeFromNib];
+	}
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(rolloverFrameDidChange:)
+												 name:NSViewFrameDidChangeNotification
+											   object:self];
+	[self setPostsFrameChangedNotifications:YES];
+	[self resetCursorRects];
+	
+	_myTrackingRectTag = -1;
+}
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	[self removeTrackingRect];
+	
+	[super dealloc];
+}
+
 // the regular image
 - (void)setUsualImage:(NSImage *)newImage
 {
     [newImage retain];
     [_usualImage release];
     _usualImage = newImage;
-    [self setImage:_usualImage];
+
+	[self setImage:_usualImage];
 }
 
 - (NSImage *)usualImage
@@ -36,15 +62,61 @@
     return _rolloverImage;
 }
 
+//Remove old tracking rects when we change superviews
+- (void)viewWillMoveToSuperview:(NSView *)newSuperview
+{
+	[self removeTrackingRect];
+	
+	[super viewWillMoveToSuperview:newSuperview];
+}
+
+- (void)viewDidMoveToSuperview
+{
+	[super viewDidMoveToSuperview];
+	
+	[self resetCursorRects];
+}
+
+- (void)viewWillMoveToWindow:(NSWindow *)newWindow
+{
+	[self removeTrackingRect];
+	
+	[super viewWillMoveToWindow:newWindow];
+}
+
+- (void)viewDidMoveToWindow
+{
+	[super viewDidMoveToWindow];
+	
+	[self resetCursorRects];
+}
+
+- (void)rolloverFrameDidChange:(NSNotification *)inNotification
+{
+	[self resetCursorRects];
+}
+
 - (void)addTrackingRect
 {
     // assign a tracking rect to watch for mouse enter/exit
-    _myTrackingRectTag = [self addTrackingRect:[self bounds] owner:self userData:nil assumeInside:NO];
+	NSRect	trackRect = [self bounds];
+	NSPoint	localPoint = [self convertPoint:[[self window] convertScreenToBase:[NSEvent mouseLocation]]
+											   fromView:nil];
+	BOOL	mouseInside = NSPointInRect(localPoint, trackRect);
+	
+    _myTrackingRectTag = [self addTrackingRect:trackRect owner:self userData:nil assumeInside:mouseInside];
+	if (mouseInside) 
+		[self mouseEntered:nil];
+	else
+		[self mouseExited:nil];
 }
 
 - (void)removeTrackingRect
 {
-    [self removeTrackingRect:_myTrackingRectTag];
+	if (_myTrackingRectTag != -1) {
+		[self removeTrackingRect:_myTrackingRectTag];
+	}
+	_myTrackingRectTag = -1;
 }
 
 // override for rollover effect
@@ -52,23 +124,16 @@
 {
     // set rollover image
     [self setImage:_rolloverImage];
-    [self setNeedsDisplay];
-    [[self superview] setNeedsDisplay:YES]; // eliminates a drawing artifact
+
+	[super mouseEntered:theEvent];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent;
 {
     // restore usual image
-    [self setImage:_usualImage];
-    [self setNeedsDisplay];
-    [[self superview] setNeedsDisplay:YES]; // eliminates a drawing artifact
-}
+	[self setImage:_usualImage];
 
-- (void)mouseDown:(NSEvent *)theEvent
-{
-    // eliminates drawing artifact
-    [[NSRunLoop currentRunLoop] performSelector:@selector(display) target:[self superview] argument:nil order:1 modes:[NSArray arrayWithObjects:@"NSEventTrackingRunLoopMode", @"NSDefaultRunLoopMode", nil]];
-    [super mouseDown:theEvent];
+	[super mouseExited:theEvent];
 }
 
 - (void)resetCursorRects
@@ -76,7 +141,18 @@
     // called when the button rect has been changed
     [self removeTrackingRect];
     [self addTrackingRect];
-    [[self superview] setNeedsDisplay:YES]; // eliminates a drawing artifact
+}
+
+- (void)setFrame:(NSRect)rect
+{
+	[super setFrame:rect];
+	[self resetCursorRects];
+}
+
+- (void)setBounds:(NSRect)rect
+{
+	[super setBounds:rect];
+	[self resetCursorRects];
 }
 
 #pragma mark -
