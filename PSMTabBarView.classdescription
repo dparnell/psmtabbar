@@ -4,7 +4,7 @@
 		// "myAction:" = id;
 	};
 	Outlets = {
-		delegate = NSObject;
+		delegate = id;
 		tabView = NSTabView;
 		partnerView = id;
 	};
