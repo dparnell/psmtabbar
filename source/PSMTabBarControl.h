@@ -218,7 +218,7 @@ enum {
 - (void)tabView:(NSTabView *)aTabView closeWindowForLastTabViewItem:(NSTabViewItem *)tabViewItem;
 
 //Overflow menu validation
-- (BOOL)tabView:(NSTabView *)aTabView validateOverflowMenuItem:(id <NSMenuItem>)menuItem forTabViewItem:(NSTabViewItem *)tabViewItem;
+- (BOOL)tabView:(NSTabView *)aTabView validateOverflowMenuItem:(NSMenuItem*)menuItem forTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabView:(NSTabView *)aTabView tabViewItem:(NSTabViewItem *)tabViewItem isInOverflowMenu:(BOOL)inOverflowMenu;
 
 //tab bar hiding methods

@@ -728,7 +728,7 @@
         return;
 	}
 	
-    [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	[self setSubviews: [NSArray array]];
 
     _isHidden = hide;
     _currentStep = 0;
@@ -1721,7 +1721,7 @@
 #pragma mark -
 #pragma mark Menu Validation
 
-- (BOOL)validateMenuItem:(id <NSMenuItem>)sender
+- (BOOL)validateMenuItem:(NSMenuItem*)sender
 {
 	[sender setState:([[sender representedObject] isEqualTo:[tabView selectedTabViewItem]]) ? NSOnState : NSOffState];
 	
@@ -1939,7 +1939,7 @@
     [self _bindPropertiesForCell:cell andTabViewItem:item];
     
     // watch for changes in the identifier
-    [item addObserver:self forKeyPath:@"identifier" options:nil context:nil];
+    [item addObserver:self forKeyPath:@"identifier" options: 0 context:nil];
 }
 
 - (void)_bindPropertiesForCell:(PSMTabBarCell *)cell andTabViewItem:(NSTabViewItem *)item
@@ -1952,7 +1952,7 @@
 			[bindingOptions setObject:NSNegateBooleanTransformerName forKey:@"NSValueTransformerName"];
 			[[cell indicator] bind:@"animate" toObject:[item identifier] withKeyPath:@"isProcessing" options:nil];
 			[[cell indicator] bind:@"hidden" toObject:[item identifier] withKeyPath:@"isProcessing" options:bindingOptions];
-            [[item identifier] addObserver:cell forKeyPath:@"isProcessing" options:nil context:nil];
+            [[item identifier] addObserver:cell forKeyPath:@"isProcessing" options: 0 context:nil];
         }
     }
     
@@ -1963,7 +1963,7 @@
 			NSMutableDictionary *bindingOptions = [NSMutableDictionary dictionary];
 			[bindingOptions setObject:NSIsNotNilTransformerName forKey:@"NSValueTransformerName"];
 			[cell bind:@"hasIcon" toObject:[item identifier] withKeyPath:@"icon" options:bindingOptions];
-			[[item identifier] addObserver:cell forKeyPath:@"icon" options:nil context:nil];
+			[[item identifier] addObserver:cell forKeyPath:@"icon" options: 0 context:nil];
         }
     }
     
@@ -1972,7 +1972,7 @@
     if ([item identifier] != nil) {
 		if ([[[cell representedObject] identifier] respondsToSelector:@selector(objectCount)]) {
 			[cell bind:@"count" toObject:[item identifier] withKeyPath:@"objectCount" options:nil];
-			[[item identifier] addObserver:cell forKeyPath:@"objectCount" options:nil context:nil];
+			[[item identifier] addObserver:cell forKeyPath:@"objectCount" options: 0 context:nil];
 		}
     }
 	
@@ -1981,7 +1981,7 @@
     if ([item identifier] != nil) {
 		if ([[[cell representedObject] identifier] respondsToSelector:@selector(countColor)]) {
 			[cell bind:@"countColor" toObject:[item identifier] withKeyPath:@"countColor" options:nil];
-			[[item identifier] addObserver:cell forKeyPath:@"countColor" options:nil context:nil];
+			[[item identifier] addObserver:cell forKeyPath:@"countColor" options: 0 context:nil];
 		}
     }
 
@@ -1992,7 +1992,7 @@
 			NSMutableDictionary *bindingOptions = [NSMutableDictionary dictionary];
 			[bindingOptions setObject:NSIsNotNilTransformerName forKey:@"NSValueTransformerName"];
 			[cell bind:@"hasLargeImage" toObject:[item identifier] withKeyPath:@"largeImage" options:bindingOptions];
-			[[item identifier] addObserver:cell forKeyPath:@"largeImage" options:nil context:nil];
+			[[item identifier] addObserver:cell forKeyPath:@"largeImage" options: 0 context:nil];
 		}
     }
 	
@@ -2000,7 +2000,7 @@
     if ([item identifier] != nil) {
 		if ([[[cell representedObject] identifier] respondsToSelector:@selector(isEdited)]) {
 			[cell bind:@"isEdited" toObject:[item identifier] withKeyPath:@"isEdited" options:nil];
-			[[item identifier] addObserver:cell forKeyPath:@"isEdited" options:nil context:nil];
+			[[item identifier] addObserver:cell forKeyPath:@"isEdited" options: 0 context:nil];
 		}
     }
     
