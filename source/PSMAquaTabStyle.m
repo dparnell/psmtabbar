@@ -569,4 +569,8 @@
     return self;
 }
 
++ (id) sharedInstance {
+	return nil;
+}
+
 @end

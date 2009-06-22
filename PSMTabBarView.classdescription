@@ -4,9 +4,7 @@
 		// "myAction:" = id;
 	};
 	Outlets = {
-		delegate = id;
-		tabView = NSTabView;
-		partnerView = id;
+		"delegate" = id; "tabView" = "NSTabView"; "partnerView" = id;
 	};
     ClassName = PSMTabBarControl; 
     SuperClass = NSControl; 

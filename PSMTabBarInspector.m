@@ -24,6 +24,59 @@
 #define kPSMAllowsBackgroundTabClosing 12
 #define kPSMCanDragTabs 13
 
+@implementation PSMTabBarControl(IBAdditions)
+
+- (NSArray*) ibDefaultChildren  {
+	return [NSArray array];
+}
+
+/*
+- (NSSize)ibMaximumSize {
+	return NSMakeSize(100000.0f, 22.0f);
+}
+
+- (NSSize)ibPreferredDesignSize {
+	return NSMakeSize(0.0, 22.0f);
+}
+
+- (IBDirection)ibPreferredResizeDirection {
+	return IBMinXDirection || IBMaxXDirection;
+}
+*/
+
+- (void)ibPopulateKeyPaths:(NSMutableDictionary *)keyPaths
+{
+    // Always call super.
+    [super ibPopulateKeyPaths:keyPaths];
+	
+    // Add any custom attributes.
+    [[keyPaths objectForKey:IBToOneRelationshipKeyPaths] addObjectsFromArray:
+	 [NSArray arrayWithObjects:@"tabView", @"partnerView", @"delegate", nil]];
+}
+
+/*
+- (void) newConnection:(NSNotification*)notification {
+	id connection = [[notification userInfo] objectForKey: @"IBDocumentConnectionKey"];
+	
+	id source = [connection source];
+	if(source==self) {
+		NSString* label = [connection label];
+		id destination = [connection destination];
+		NSLog(@"setting property %@ of %@ to %@", label, self, destination);
+		
+		[self setValue: destination forKey: [connection label]];
+	}
+}
+
+- (void)ibDidAddToDesignableDocument:(IBDocument *)document {
+	[super ibDidAddToDesignableDocument: document];
+	
+	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(newConnection:) name: @"IBDocumentDidAddConnectionNotification" object: document];
+}
+ */
+
+@end
+
 @implementation PSMTabBarInspector
 
 + (BOOL)supportsMultipleObjectInspection {

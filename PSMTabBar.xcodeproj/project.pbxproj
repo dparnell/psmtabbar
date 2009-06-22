@@ -77,6 +77,10 @@
 		65140ECE0FE5F94C00D862D2 /* PSMTabBarFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* PSMTabBarFramework.framework */; };
 		65140EE50FE5F9A800D862D2 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 65140EE10FE5F9A800D862D2 /* MainMenu.nib */; };
 		65140EE60FE5F9A800D862D2 /* Window.nib in Resources */ = {isa = PBXBuildFile; fileRef = 65140EE30FE5F9A800D862D2 /* Window.nib */; };
+		65371A340FEDDFA80008D1A1 /* ibapp_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65371A330FEDDFA80008D1A1 /* ibapp_main.m */; };
+		65371A390FEDE0380008D1A1 /* TestAppMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65371A380FEDE0380008D1A1 /* TestAppMainMenu.xib */; };
+		65371A400FEDE0EC0008D1A1 /* PSMTabBarFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* PSMTabBarFramework.framework */; };
+		65371AA20FEDECC80008D1A1 /* PSMTabBarFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* PSMTabBarFramework.framework */; };
 		65D065020D26175000FD8609 /* PSMAquaTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D064EF0D26175000FD8609 /* PSMAquaTabStyle.h */; settings = {ATTRIBUTES = (); }; };
 		65D065030D26175000FD8609 /* PSMAquaTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D064F00D26175000FD8609 /* PSMAquaTabStyle.m */; };
 		65D065040D26175000FD8609 /* PSMMetalTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D064F10D26175000FD8609 /* PSMMetalTabStyle.h */; settings = {ATTRIBUTES = (); }; };
@@ -155,7 +159,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
+			remoteInfo = PSMTabBarFramework;
+		};
+		65371A880FEDEA310008D1A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
 			remoteInfo = PSMTabBarFramework;
 		};
 /* End PBXContainerItemProxy section */
@@ -228,6 +239,10 @@
 		65140EC40FE5F93700D862D2 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Warning.png; path = images/Warning.png; sourceTree = "<group>"; };
 		65140EE20FE5F9A800D862D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		65140EE40FE5F9A800D862D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Window.nib; sourceTree = "<group>"; };
+		65371A2D0FEDDF5E0008D1A1 /* IBApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IBApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65371A2F0FEDDF5E0008D1A1 /* IBApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IBApplication-Info.plist"; sourceTree = "<group>"; };
+		65371A330FEDDFA80008D1A1 /* ibapp_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ibapp_main.m; sourceTree = "<group>"; };
+		65371A380FEDE0380008D1A1 /* TestAppMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAppMainMenu.xib; sourceTree = "<group>"; };
 		65D064EF0D26175000FD8609 /* PSMAquaTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMAquaTabStyle.h; path = source/PSMAquaTabStyle.h; sourceTree = "<group>"; };
 		65D064F00D26175000FD8609 /* PSMAquaTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMAquaTabStyle.m; path = source/PSMAquaTabStyle.m; sourceTree = "<group>"; };
 		65D064F10D26175000FD8609 /* PSMMetalTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMMetalTabStyle.h; path = source/PSMMetalTabStyle.h; sourceTree = "<group>"; };
@@ -298,10 +313,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65371A2B0FEDDF5E0008D1A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65371A400FEDE0EC0008D1A1 /* PSMTabBarFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1AC96E0486D14A00FE50C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65371AA20FEDECC80008D1A1 /* PSMTabBarFramework.framework in Frameworks */,
 				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
 				C0D069560A49DF9100C95564 /* InterfaceBuilderKit.framework in Frameworks */,
 				65140C010FE36BB100D862D2 /* Carbon.framework in Frameworks */,
@@ -314,13 +338,13 @@
 		0259C574FE90428111CA0C5A /* PSMTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				65371A210FEDDF280008D1A1 /* IB Application */,
 				65140E9E0FE5F84A00D862D2 /* Application */,
 				32DBCF9E0370C38000C91783 /* Plugin */,
 				54D33B2C06778E4400C9C163 /* Framework */,
 				0259C582FE90428111CA0C5A /* Resources */,
-				1ED78706FE9D4A0611CA0C5A /* Products */,
 				2E58F364FFB232C311CA0CBA /* Frameworks */,
-				65140EA70FE5F86400D862D2 /* TestApplication-Info.plist */,
+				1ED78706FE9D4A0611CA0C5A /* Products */,
 			);
 			name = PSMTabBar;
 			sourceTree = "<group>";
@@ -413,6 +437,7 @@
 				8D1AC9740486D14A00FE50C9 /* PSMTabBar.ibplugin */,
 				53DF68FD067E5B5A0090B5B0 /* PSMTabBarFramework.framework */,
 				65140EA50FE5F86400D862D2 /* TestApplication.app */,
+				65371A2D0FEDDF5E0008D1A1 /* IBApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,6 +541,7 @@
 		65140EB00FE5F8E100D862D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65140EA70FE5F86400D862D2 /* TestApplication-Info.plist */,
 				65140EE10FE5F9A800D862D2 /* MainMenu.nib */,
 				65140EE30FE5F9A800D862D2 /* Window.nib */,
 				65140EBC0FE5F93700D862D2 /* Folder.png */,
@@ -529,6 +555,40 @@
 				65140EC40FE5F93700D862D2 /* Warning.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		65371A210FEDDF280008D1A1 /* IB Application */ = {
+			isa = PBXGroup;
+			children = (
+				65371A260FEDDF4A0008D1A1 /* Classes */,
+				65371A230FEDDF430008D1A1 /* Other Sources */,
+				65371A220FEDDF3C0008D1A1 /* Resources */,
+			);
+			name = "IB Application";
+			sourceTree = "<group>";
+		};
+		65371A220FEDDF3C0008D1A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65371A2F0FEDDF5E0008D1A1 /* IBApplication-Info.plist */,
+				65371A380FEDE0380008D1A1 /* TestAppMainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		65371A230FEDDF430008D1A1 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				65371A330FEDDFA80008D1A1 /* ibapp_main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		65371A260FEDDF4A0008D1A1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		C0894DA40C32F4C100401507 /* Classes */ = {
@@ -638,6 +698,24 @@
 			productReference = 65140EA50FE5F86400D862D2 /* TestApplication.app */;
 			productType = "com.apple.product-type.application";
 		};
+		65371A2C0FEDDF5E0008D1A1 /* IBApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65371A320FEDDF600008D1A1 /* Build configuration list for PBXNativeTarget "IBApplication" */;
+			buildPhases = (
+				65371A290FEDDF5E0008D1A1 /* Resources */,
+				65371A2A0FEDDF5E0008D1A1 /* Sources */,
+				65371A2B0FEDDF5E0008D1A1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65371A890FEDEA310008D1A1 /* PBXTargetDependency */,
+			);
+			name = IBApplication;
+			productName = IBApplication;
+			productReference = 65371A2D0FEDDF5E0008D1A1 /* IBApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8D1AC9600486D14A00FE50C9 /* PSMTabBar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C056398308A954F8003078D8 /* Build configuration list for PBXNativeTarget "PSMTabBar" */;
@@ -673,6 +751,7 @@
 				8D1AC9600486D14A00FE50C9 /* PSMTabBar */,
 				53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */,
 				65140EA40FE5F86400D862D2 /* TestApplication */,
+				65371A2C0FEDDF5E0008D1A1 /* IBApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -746,6 +825,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65371A290FEDDF5E0008D1A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65371A390FEDE0380008D1A1 /* TestAppMainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1AC9660486D14A00FE50C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -794,6 +881,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65371A2A0FEDDF5E0008D1A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65371A340FEDDFA80008D1A1 /* ibapp_main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1AC96A0486D14A00FE50C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -826,6 +921,11 @@
 			isa = PBXTargetDependency;
 			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
 			targetProxy = 65140ECF0FE5F95600D862D2 /* PBXContainerItemProxy */;
+		};
+		65371A890FEDEA310008D1A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
+			targetProxy = 65371A880FEDEA310008D1A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -907,6 +1007,54 @@
 			};
 			name = Release;
 		};
+		65371A300FEDDF600008D1A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "IBApplication-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = IBApplication;
+			};
+			name = Debug;
+		};
+		65371A310FEDDF600008D1A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "IBApplication-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = IBApplication;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C056398008A954F8003078D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -923,7 +1071,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = /Library/Frameworks;
 				PRODUCT_NAME = PSMTabBarFramework;
 				SKIP_INSTALL = NO;
 			};
@@ -942,7 +1090,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = /Library/Frameworks;
 				PRODUCT_NAME = PSMTabBarFramework;
 				SKIP_INSTALL = YES;
 			};
@@ -1070,6 +1218,15 @@
 			buildConfigurations = (
 				65140EAB0FE5F86600D862D2 /* Debug */,
 				65140EAC0FE5F86600D862D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65371A320FEDDF600008D1A1 /* Build configuration list for PBXNativeTarget "IBApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65371A300FEDDF600008D1A1 /* Debug */,
+				65371A310FEDDF600008D1A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

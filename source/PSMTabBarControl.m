@@ -322,6 +322,10 @@
     [view retain];
     [tabView release];
     tabView = view;
+	
+	if(tabView) {
+		[self tabViewDidChangeNumberOfTabViewItems: tabView];
+	}	
 }
 
 - (id<PSMTabStyle>)style
@@ -603,7 +607,15 @@
 {
     // create cell
     PSMTabBarCell *cell = [[PSMTabBarCell alloc] initWithControlView:self];
-	NSRect cellRect, lastCellFrame = [[_cells lastObject] frame];
+	PSMTabBarCell *lastCell = [_cells lastObject];
+
+	NSRect cellRect, lastCellFrame;
+	
+	if(lastCell) {
+		lastCellFrame = [lastCell frame];
+	} else {
+		lastCellFrame = NSMakeRect(0, 0, 0, 0);
+	}
 	
 	if ([self orientation] == PSMTabBarHorizontalOrientation) {
 		cellRect = [self genericCellRect];
@@ -1845,10 +1857,9 @@
     [super encodeWithCoder:aCoder];
     if ([aCoder allowsKeyedCoding]) {
         [aCoder encodeObject:_cells forKey:@"PSMcells"];
-        [aCoder encodeObject:tabView forKey:@"PSMtabView"];
         [aCoder encodeObject:_overflowPopUpButton forKey:@"PSMoverflowPopUpButton"];
         [aCoder encodeObject:_addTabButton forKey:@"PSMaddTabButton"];
-        [aCoder encodeObject:style forKey:@"PSMstyle"];
+		[aCoder encodeObject: [self styleName] forKey: @"PSMstyleName"];
 		[aCoder encodeInt:_orientation forKey:@"PSMorientation"];
         [aCoder encodeBool:_canCloseOnlyTab forKey:@"PSMcanCloseOnlyTab"];
 		[aCoder encodeBool:_disableTabClose forKey:@"PSMdisableTabClose"];
@@ -1863,10 +1874,8 @@
         [aCoder encodeInt:_cellOptimumWidth forKey:@"PSMcellOptimumWidth"];
         [aCoder encodeInt:_currentStep forKey:@"PSMcurrentStep"];
         [aCoder encodeBool:_isHidden forKey:@"PSMisHidden"];
-        [aCoder encodeObject:partnerView forKey:@"PSMpartnerView"];
         [aCoder encodeBool:_awakenedFromNib forKey:@"PSMawakenedFromNib"];
         [aCoder encodeObject:_lastMouseDownEvent forKey:@"PSMlastMouseDownEvent"];
-        [aCoder encodeObject:delegate forKey:@"PSMdelegate"];
 		[aCoder encodeBool:_useOverflowMenu forKey:@"PSMuseOverflowMenu"];
 		[aCoder encodeBool:_automaticallyAnimates forKey:@"PSMautomaticallyAnimates"];
 		[aCoder encodeBool:_alwaysShowActiveTab forKey:@"PSMalwaysShowActiveTab"];
@@ -1879,11 +1888,11 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         if ([aDecoder allowsKeyedCoding]) {
+			_controller = [[PSMTabBarController alloc] initWithTabBarControl:self];			
             _cells = [[aDecoder decodeObjectForKey:@"PSMcells"] retain];
-            tabView = [[aDecoder decodeObjectForKey:@"PSMtabView"] retain];
             _overflowPopUpButton = [[aDecoder decodeObjectForKey:@"PSMoverflowPopUpButton"] retain];
             _addTabButton = [[aDecoder decodeObjectForKey:@"PSMaddTabButton"] retain];
-            style = [[aDecoder decodeObjectForKey:@"PSMstyle"] retain];
+			[self setStyleNamed: [aDecoder decodeObjectForKey: @"PSMstyleName"]];
 			_orientation = (PSMTabBarOrientation)[aDecoder decodeIntForKey:@"PSMorientation"];
             _canCloseOnlyTab = [aDecoder decodeBoolForKey:@"PSMcanCloseOnlyTab"];
 			_disableTabClose = [aDecoder decodeBoolForKey:@"PSMdisableTabClose"];
@@ -1898,19 +1907,18 @@
             _cellOptimumWidth = [aDecoder decodeIntForKey:@"PSMcellOptimumWidth"];
             _currentStep = [aDecoder decodeIntForKey:@"PSMcurrentStep"];
             _isHidden = [aDecoder decodeBoolForKey:@"PSMisHidden"];
-            partnerView = [[aDecoder decodeObjectForKey:@"PSMpartnerView"] retain];
             _awakenedFromNib = [aDecoder decodeBoolForKey:@"PSMawakenedFromNib"];
             _lastMouseDownEvent = [[aDecoder decodeObjectForKey:@"PSMlastMouseDownEvent"] retain];
 			_useOverflowMenu = [aDecoder decodeBoolForKey:@"PSMuseOverflowMenu"];
 			_automaticallyAnimates = [aDecoder decodeBoolForKey:@"PSMautomaticallyAnimates"];
 			_alwaysShowActiveTab = [aDecoder decodeBoolForKey:@"PSMalwaysShowActiveTab"];
 			_canDragTabs = [aDecoder decodeBoolForKey: @"PSMcanDragTabs"];
-            delegate = [[aDecoder decodeObjectForKey:@"PSMdelegate"] retain];
         }
     }
     return self;
 }
 
+/*
 #pragma mark -
 #pragma mark IB Palette
 
@@ -1930,6 +1938,7 @@
     [self setFrame:newFrame];
     [self update:NO];
 }
+*/
 
 #pragma mark -
 #pragma mark Convenience

@@ -10,15 +10,13 @@
 
 @implementation PSMTabBar
 
-- (NSArray *)libraryNibNames {
-	NSBundle* frameworkBundle;
-	NSString* path;
+- (NSArray*)requiredFrameworks {
 	
-	NSLog(@"Loading the PSMTabBar framework");
-	path = [[NSBundle bundleForClass: [PSMTabBar class]] bundlePath];
-	frameworkBundle = [[NSBundle alloc] initWithPath: [[path stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]];
-	[frameworkBundle load];
-	
+	NSBundle* frameworkBundle = [NSBundle bundleWithIdentifier: @"com.automagicsoftware.PSMTabBar"];
+	return [NSArray arrayWithObject: frameworkBundle];
+}
+
+- (NSArray *)libraryNibNames {	
     return [NSArray arrayWithObject:@"PSMTabBarLibrary"];
 }
 

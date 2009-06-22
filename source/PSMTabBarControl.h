@@ -60,7 +60,7 @@ enum {
     
     // control basics
     NSMutableArray              *_cells;                    // the cells that draw the tabs
-    IBOutlet NSTabView          *tabView;                   // the tab view being navigated
+	NSTabView          *tabView;                   // the tab view being navigated
     PSMOverflowPopUpButton      *_overflowPopUpButton;      // for too many tabs
     PSMRolloverButton           *_addTabButton;
     PSMTabBarController			*_controller;
@@ -102,7 +102,7 @@ enum {
     // animation for hide/show
     int                         _currentStep;
     BOOL                        _isHidden;
-    IBOutlet id                 partnerView;                // gets resized when hide/show
+	id                 partnerView;                // gets resized when hide/show
     BOOL                        _awakenedFromNib;
 	int							_tabBarWidth;
     NSTimer						*_showHideAnimationTimer;
@@ -113,7 +113,7 @@ enum {
 	BOOL						_closeClicked;
     
     // MVC help
-    IBOutlet id                 delegate;
+	id                 delegate;
 }
 
 // control characteristics
