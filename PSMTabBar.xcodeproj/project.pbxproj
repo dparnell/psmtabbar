@@ -1071,7 +1071,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
-				INSTALL_PATH = /Library/Frameworks;
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarFramework;
 				SKIP_INSTALL = NO;
 			};
@@ -1090,7 +1090,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
-				INSTALL_PATH = /Library/Frameworks;
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarFramework;
 				SKIP_INSTALL = YES;
 			};
