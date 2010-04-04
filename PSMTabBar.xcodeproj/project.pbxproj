@@ -323,7 +323,6 @@
 		65371A330FEDDFA80008D1A1 /* ibapp_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ibapp_main.m; sourceTree = "<group>"; };
 		65371A380FEDE0380008D1A1 /* TestAppMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAppMainMenu.xib; sourceTree = "<group>"; };
 		65ABCAB71037C5EE0080D020 /* PSMTabBarEmbedded.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSMTabBarEmbedded.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65ABCAB81037C5EE0080D020 /* PSMTabBarFramework-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSMTabBarFramework-Info copy.plist"; sourceTree = "<group>"; };
 		65D064EF0D26175000FD8609 /* PSMAquaTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMAquaTabStyle.h; path = source/PSMAquaTabStyle.h; sourceTree = "<group>"; };
 		65D064F00D26175000FD8609 /* PSMAquaTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMAquaTabStyle.m; path = source/PSMAquaTabStyle.m; sourceTree = "<group>"; };
 		65D064F10D26175000FD8609 /* PSMMetalTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMMetalTabStyle.h; path = source/PSMMetalTabStyle.h; sourceTree = "<group>"; };
@@ -488,7 +487,6 @@
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
 				53DF68FE067E5B5A0090B5B0 /* PSMTabBarFramework-Info.plist */,
 				8D1AC97F0486D23B00FE50C9 /* InfoPlist.strings */,
-				65ABCAB81037C5EE0080D020 /* PSMTabBarFramework-Info copy.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1279,7 +1277,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
-				INFOPLIST_FILE = "/Users/daniel/Development/cocoa/Applications/QueryThing/Frameworks/PSMTabBar/PSMTabBarFramework-Info copy.plist";
+				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
 				SKIP_INSTALL = NO;
@@ -1300,7 +1298,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
-				INFOPLIST_FILE = "/Users/daniel/Development/cocoa/Applications/QueryThing/Frameworks/PSMTabBar/PSMTabBarFramework-Info copy.plist";
+				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
 				SKIP_INSTALL = YES;

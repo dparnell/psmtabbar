@@ -11,7 +11,6 @@
 @implementation PSMTabBar
 
 - (NSArray*)requiredFrameworks {
-	
 	NSBundle* frameworkBundle = [NSBundle bundleWithIdentifier: @"com.automagicsoftware.PSMTabBar"];
 	return [NSArray arrayWithObject: frameworkBundle];
 }
