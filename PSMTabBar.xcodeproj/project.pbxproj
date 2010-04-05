@@ -15,6 +15,9 @@
 			dependencies = (
 				53DF6903067E5B930090B5B0 /* PBXTargetDependency */,
 				53DF6905067E5B930090B5B0 /* PBXTargetDependency */,
+				65C0F1B711696BDA00E133C1 /* PBXTargetDependency */,
+				65C0F1B911696BDA00E133C1 /* PBXTargetDependency */,
+				65C0F1BB11696BDA00E133C1 /* PBXTargetDependency */,
 			);
 			name = All;
 			productName = All;
@@ -247,6 +250,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
 			remoteInfo = PSMTabBarFramework;
+		};
+		65C0F1B611696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65140EA40FE5F86400D862D2 /* TestApplication */;
+			remoteInfo = TestApplication;
+		};
+		65C0F1B811696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65371A2C0FEDDF5E0008D1A1 /* IBApplication */;
+			remoteInfo = IBApplication;
+		};
+		65C0F1BA11696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65ABCA601037C5EE0080D020 /* PSMTabBarEmbedded */;
+			remoteInfo = PSMTabBarEmbedded;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1133,6 +1157,21 @@
 			isa = PBXTargetDependency;
 			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
 			targetProxy = 65371A880FEDEA310008D1A1 /* PBXContainerItemProxy */;
+		};
+		65C0F1B711696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65140EA40FE5F86400D862D2 /* TestApplication */;
+			targetProxy = 65C0F1B611696BDA00E133C1 /* PBXContainerItemProxy */;
+		};
+		65C0F1B911696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65371A2C0FEDDF5E0008D1A1 /* IBApplication */;
+			targetProxy = 65C0F1B811696BDA00E133C1 /* PBXContainerItemProxy */;
+		};
+		65C0F1BB11696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65ABCA601037C5EE0080D020 /* PSMTabBarEmbedded */;
+			targetProxy = 65C0F1BA11696BDA00E133C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
