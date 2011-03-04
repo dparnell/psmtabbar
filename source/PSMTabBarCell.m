@@ -398,7 +398,7 @@
 
 - (NSImage *)dragImage
 {
-	NSRect cellFrame = [(id <PSMTabStyle>)[_controlView style] dragRectForTabCell:self orientation:(PSMTabBarOrientation)[_controlView orientation]];
+	NSRect cellFrame = [(id <PSMTabStyle>)[_controlView style] dragRectForTabCell:self orientation:(PSMTabBarOrientation)[(PSMTabBarControl*)_controlView orientation]];
 	//NSRect cellFrame = [self frame];
 	
     [_controlView lockFocus];

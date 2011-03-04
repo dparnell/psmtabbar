@@ -134,7 +134,7 @@
     [[tabView selectedTabViewItem] setLabel:[sender stringValue]];
 }
 
-- (BOOL)validateMenuItem:(id <NSMenuItem>)menuItem
+- (BOOL)validateMenuItem:(id)menuItem
 {
     if ([menuItem action] == @selector(closeTab:)) {
         if (![tabBar canCloseOnlyTab] && ([tabView numberOfTabViewItems] <= 1)) {
@@ -441,7 +441,7 @@
 	
 	[viewImage unlockFocus];
 	
-	if ([[aTabView delegate] orientation] == PSMTabBarHorizontalOrientation) {
+	if ([(PSMTabBarControl*)[aTabView delegate] orientation] == PSMTabBarHorizontalOrientation) {
 		offset->width = [(id <PSMTabStyle>)[[aTabView delegate] style] leftMarginForTabBarControl];
 		offset->height = 22;
 	} else {

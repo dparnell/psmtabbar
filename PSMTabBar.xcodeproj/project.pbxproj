@@ -15,6 +15,9 @@
 			dependencies = (
 				53DF6903067E5B930090B5B0 /* PBXTargetDependency */,
 				53DF6905067E5B930090B5B0 /* PBXTargetDependency */,
+				65C0F1B711696BDA00E133C1 /* PBXTargetDependency */,
+				65C0F1B911696BDA00E133C1 /* PBXTargetDependency */,
+				65C0F1BB11696BDA00E133C1 /* PBXTargetDependency */,
 			);
 			name = All;
 			productName = All;
@@ -248,6 +251,27 @@
 			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0;
 			remoteInfo = PSMTabBarFramework;
 		};
+		65C0F1B611696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65140EA40FE5F86400D862D2 /* TestApplication */;
+			remoteInfo = TestApplication;
+		};
+		65C0F1B811696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65371A2C0FEDDF5E0008D1A1 /* IBApplication */;
+			remoteInfo = IBApplication;
+		};
+		65C0F1BA11696BDA00E133C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0259C573FE90428111CA0C5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65ABCA601037C5EE0080D020 /* PSMTabBarEmbedded */;
+			remoteInfo = PSMTabBarEmbedded;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -323,7 +347,6 @@
 		65371A330FEDDFA80008D1A1 /* ibapp_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ibapp_main.m; sourceTree = "<group>"; };
 		65371A380FEDE0380008D1A1 /* TestAppMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestAppMainMenu.xib; sourceTree = "<group>"; };
 		65ABCAB71037C5EE0080D020 /* PSMTabBarEmbedded.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSMTabBarEmbedded.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65ABCAB81037C5EE0080D020 /* PSMTabBarFramework-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSMTabBarFramework-Info copy.plist"; sourceTree = "<group>"; };
 		65D064EF0D26175000FD8609 /* PSMAquaTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMAquaTabStyle.h; path = source/PSMAquaTabStyle.h; sourceTree = "<group>"; };
 		65D064F00D26175000FD8609 /* PSMAquaTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMAquaTabStyle.m; path = source/PSMAquaTabStyle.m; sourceTree = "<group>"; };
 		65D064F10D26175000FD8609 /* PSMMetalTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMMetalTabStyle.h; path = source/PSMMetalTabStyle.h; sourceTree = "<group>"; };
@@ -442,53 +465,10 @@
 		0259C582FE90428111CA0C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				65140A530FE27D1700D862D2 /* 32x32_log.png */,
-				65140A540FE27D1700D862D2 /* AdiumGradient.png */,
-				65140A550FE27D1700D862D2 /* AquaTabClose_Front.png */,
-				65140A560FE27D1700D862D2 /* AquaTabClose_Front_Pressed.png */,
-				65140A570FE27D1700D862D2 /* AquaTabClose_Front_Rollover.png */,
-				65140A580FE27D1700D862D2 /* AquaTabCloseDirty_Front.png */,
-				65140A590FE27D1700D862D2 /* AquaTabCloseDirty_Front_Pressed.png */,
-				65140A5A0FE27D1700D862D2 /* AquaTabCloseDirty_Front_Rollover.png */,
-				65140A600FE27D1700D862D2 /* overflowImage.png */,
-				65140A610FE27D1700D862D2 /* overflowImagePressed.png */,
-				65140A630FE27D1700D862D2 /* TabClose_Dirty.png */,
-				65140A640FE27D1700D862D2 /* TabClose_Dirty_Pressed.png */,
-				65140A650FE27D1700D862D2 /* TabClose_Dirty_Rollover.png */,
-				65140A660FE27D1700D862D2 /* TabClose_Front.png */,
-				65140A670FE27D1700D862D2 /* TabClose_Front_Pressed.png */,
-				65140A680FE27D1700D862D2 /* TabClose_Front_Rollover.png */,
-				65140A690FE27D1700D862D2 /* TabControlRep.png */,
-				65140A6A0FE27D1700D862D2 /* TabIcon.png */,
-				65D065170D2617CC00FD8609 /* 32x32_log.tiff */,
-				65D065180D2617CC00FD8609 /* 32x32cancel.png */,
-				65D065190D2617CC00FD8609 /* AquaTabClose_Front.tif */,
-				65D0651A0D2617CC00FD8609 /* AquaTabClose_Front_Pressed.tif */,
-				65D0651B0D2617CC00FD8609 /* AquaTabClose_Front_Rollover.tif */,
-				65D0651C0D2617CC00FD8609 /* AquaTabNew.png */,
-				65D0651D0D2617CC00FD8609 /* AquaTabNewPressed.png */,
-				65D0651E0D2617CC00FD8609 /* AquaTabNewRollover.png */,
-				65D0651F0D2617CC00FD8609 /* AquaTabsBackground.png */,
-				65D065200D2617CC00FD8609 /* AquaTabsDown.png */,
-				65D065210D2617CC00FD8609 /* AquaTabsDownGraphite.png */,
-				65D065220D2617CC00FD8609 /* AquaTabsDownNonKey.png */,
-				65D065230D2617CC00FD8609 /* AquaTabsSeparator.png */,
-				65D065240D2617CC00FD8609 /* AquaTabsSeparatorDown.png */,
-				65D065270D2617CC00FD8609 /* overflowImage.tiff */,
-				65D065280D2617CC00FD8609 /* overflowImagePressed.tif */,
-				65D065290D2617CC00FD8609 /* pi.png */,
-				65D0652A0D2617CC00FD8609 /* TabClose_Front.tif */,
-				65D0652B0D2617CC00FD8609 /* TabClose_Front_Pressed.tif */,
-				65D0652C0D2617CC00FD8609 /* TabClose_Front_Rollover.tif */,
-				65D0652D0D2617CC00FD8609 /* TabControlRep.tif */,
-				65D0652E0D2617CC00FD8609 /* TabIcon.tif */,
-				65D0652F0D2617CD00FD8609 /* TabNewMetal.png */,
-				65D065300D2617CD00FD8609 /* TabNewMetalPressed.png */,
-				65D065310D2617CD00FD8609 /* TabNewMetalRollover.png */,
+				65C0F1DE1169744400E133C1 /* Images */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
 				53DF68FE067E5B5A0090B5B0 /* PSMTabBarFramework-Info.plist */,
 				8D1AC97F0486D23B00FE50C9 /* InfoPlist.strings */,
-				65ABCAB81037C5EE0080D020 /* PSMTabBarFramework-Info copy.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -681,6 +661,56 @@
 			children = (
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		65C0F1DE1169744400E133C1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				65140A530FE27D1700D862D2 /* 32x32_log.png */,
+				65140A540FE27D1700D862D2 /* AdiumGradient.png */,
+				65140A550FE27D1700D862D2 /* AquaTabClose_Front.png */,
+				65140A560FE27D1700D862D2 /* AquaTabClose_Front_Pressed.png */,
+				65140A570FE27D1700D862D2 /* AquaTabClose_Front_Rollover.png */,
+				65140A580FE27D1700D862D2 /* AquaTabCloseDirty_Front.png */,
+				65140A590FE27D1700D862D2 /* AquaTabCloseDirty_Front_Pressed.png */,
+				65140A5A0FE27D1700D862D2 /* AquaTabCloseDirty_Front_Rollover.png */,
+				65140A600FE27D1700D862D2 /* overflowImage.png */,
+				65140A610FE27D1700D862D2 /* overflowImagePressed.png */,
+				65140A630FE27D1700D862D2 /* TabClose_Dirty.png */,
+				65140A640FE27D1700D862D2 /* TabClose_Dirty_Pressed.png */,
+				65140A650FE27D1700D862D2 /* TabClose_Dirty_Rollover.png */,
+				65140A660FE27D1700D862D2 /* TabClose_Front.png */,
+				65140A670FE27D1700D862D2 /* TabClose_Front_Pressed.png */,
+				65140A680FE27D1700D862D2 /* TabClose_Front_Rollover.png */,
+				65140A690FE27D1700D862D2 /* TabControlRep.png */,
+				65140A6A0FE27D1700D862D2 /* TabIcon.png */,
+				65D065170D2617CC00FD8609 /* 32x32_log.tiff */,
+				65D065180D2617CC00FD8609 /* 32x32cancel.png */,
+				65D065190D2617CC00FD8609 /* AquaTabClose_Front.tif */,
+				65D0651A0D2617CC00FD8609 /* AquaTabClose_Front_Pressed.tif */,
+				65D0651B0D2617CC00FD8609 /* AquaTabClose_Front_Rollover.tif */,
+				65D0651C0D2617CC00FD8609 /* AquaTabNew.png */,
+				65D0651D0D2617CC00FD8609 /* AquaTabNewPressed.png */,
+				65D0651E0D2617CC00FD8609 /* AquaTabNewRollover.png */,
+				65D0651F0D2617CC00FD8609 /* AquaTabsBackground.png */,
+				65D065200D2617CC00FD8609 /* AquaTabsDown.png */,
+				65D065210D2617CC00FD8609 /* AquaTabsDownGraphite.png */,
+				65D065220D2617CC00FD8609 /* AquaTabsDownNonKey.png */,
+				65D065230D2617CC00FD8609 /* AquaTabsSeparator.png */,
+				65D065240D2617CC00FD8609 /* AquaTabsSeparatorDown.png */,
+				65D065270D2617CC00FD8609 /* overflowImage.tiff */,
+				65D065280D2617CC00FD8609 /* overflowImagePressed.tif */,
+				65D065290D2617CC00FD8609 /* pi.png */,
+				65D0652A0D2617CC00FD8609 /* TabClose_Front.tif */,
+				65D0652B0D2617CC00FD8609 /* TabClose_Front_Pressed.tif */,
+				65D0652C0D2617CC00FD8609 /* TabClose_Front_Rollover.tif */,
+				65D0652D0D2617CC00FD8609 /* TabControlRep.tif */,
+				65D0652E0D2617CC00FD8609 /* TabIcon.tif */,
+				65D0652F0D2617CD00FD8609 /* TabNewMetal.png */,
+				65D065300D2617CD00FD8609 /* TabNewMetalPressed.png */,
+				65D065310D2617CD00FD8609 /* TabNewMetalRollover.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C0894DA40C32F4C100401507 /* Classes */ = {
@@ -1140,6 +1170,21 @@
 			target = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarFramework */;
 			targetProxy = 65371A880FEDEA310008D1A1 /* PBXContainerItemProxy */;
 		};
+		65C0F1B711696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65140EA40FE5F86400D862D2 /* TestApplication */;
+			targetProxy = 65C0F1B611696BDA00E133C1 /* PBXContainerItemProxy */;
+		};
+		65C0F1B911696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65371A2C0FEDDF5E0008D1A1 /* IBApplication */;
+			targetProxy = 65C0F1B811696BDA00E133C1 /* PBXContainerItemProxy */;
+		};
+		65C0F1BB11696BDA00E133C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65ABCA601037C5EE0080D020 /* PSMTabBarEmbedded */;
+			targetProxy = 65C0F1BA11696BDA00E133C1 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1174,6 +1219,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1200,6 +1246,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1226,6 +1273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1251,6 +1299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1288,7 +1337,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
-				INFOPLIST_FILE = "/Users/daniel/Development/cocoa/Applications/QueryThing/Frameworks/PSMTabBar/PSMTabBarFramework-Info copy.plist";
+				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
@@ -1310,7 +1359,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = source/Framework_Prefix.pch;
-				INFOPLIST_FILE = "/Users/daniel/Development/cocoa/Applications/QueryThing/Frameworks/PSMTabBar/PSMTabBarFramework-Info copy.plist";
+				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
