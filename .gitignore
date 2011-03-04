@@ -4,3 +4,4 @@ _darcs
 *.pbxuser
 .DS_Store
 .svn
+xcuserdata
