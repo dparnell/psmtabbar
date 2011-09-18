@@ -189,6 +189,10 @@ enum {
 - (void)bindPropertiesForCell:(PSMTabBarCell *)cell andTabViewItem:(NSTabViewItem *)item;
 - (void)removeTabForCell:(PSMTabBarCell *)cell;
 
+@property (retain) IBOutlet id delegate;
+@property (retain) IBOutlet id partnerView;
+@property (retain) IBOutlet NSTabView* tabView;
+
 @end
 
 
