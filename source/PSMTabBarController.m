@@ -604,7 +604,7 @@ static int potentialMinimumForArray(NSArray *array, int minimum)
             if (_overflowMenu == nil) {
                 _overflowMenu = [[NSMenu alloc] init];
                 [_overflowMenu insertItemWithTitle:@"" action:nil keyEquivalent:@"" atIndex:0]; // Because the overflowPupUpButton is a pull down menu
-				[_overflowMenu setDelegate:self];
+				[_overflowMenu setDelegate: (id <NSMenuDelegate>) self];
             }
             
 			// Each item's title is limited to 60 characters. If more than 60 characters, use an ellipsis to indicate that more exists.

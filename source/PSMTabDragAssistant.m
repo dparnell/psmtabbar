@@ -305,7 +305,7 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
 			if ([_sourceTabBar tearOffStyle] == PSMTabBarTearOffAlphaWindow) {
 				[[_draggedView window] setAlphaValue:kPSMTabDragWindowAlpha];
 			} else {
-				#warning fix me - what should we do when the last tab is dragged as a miniwindow?
+				// #warning fix me - what should we do when the last tab is dragged as a miniwindow?
 			}
 		} else {
 			if ([_sourceTabBar tearOffStyle] == PSMTabBarTearOffAlphaWindow) {
