@@ -608,7 +608,7 @@
     // create cell
     PSMTabBarCell *cell = [[PSMTabBarCell alloc] initWithControlView:self];
 	PSMTabBarCell *lastCell = [_cells lastObject];
-
+    
 	NSRect cellRect, lastCellFrame;
 	
 	if(lastCell) {
@@ -645,7 +645,7 @@
 - (void)removeTabForCell:(PSMTabBarCell *)cell
 {
 	NSTabViewItem *item = [cell representedObject];
-	
+    
     // unbind
     [[cell indicator] unbind:@"animate"];
     [[cell indicator] unbind:@"hidden"];
@@ -714,6 +714,8 @@
     // pull from collection
     [_cells removeObject:cell];
 
+    [cell setControlView: nil];
+    
     [self update];
 }
 
@@ -1171,7 +1173,8 @@
 
 - (void)_setupTrackingRectsForCell:(PSMTabBarCell *)cell
 {
-    int tag, index = [_cells indexOfObject:cell];
+    NSTrackingRectTag tag;
+    int index = [_cells indexOfObject:cell];
     NSRect cellTrackingRect = [_controller cellTrackingRectAtIndex:index];
     NSPoint mousePoint = [self convertPoint:[[self window] mouseLocationOutsideOfEventStream] fromView:nil];
     BOOL mouseInCell = NSMouseInRect(mousePoint, cellTrackingRect, [self isFlipped]);
@@ -1814,7 +1817,6 @@
 			if ([[self delegate] respondsToSelector:@selector(tabView:didCloseTabViewItem:)]) {
 				[[self delegate] tabView:aTabView didCloseTabViewItem:[cell representedObject]];
 			}
-			
             [self removeTabForCell:cell];
         }
     }
