@@ -906,7 +906,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = C056398B08A954F8003078D8 /* Build configuration list for PBXProject "PSMTabBar" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1239,7 +1239,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = TestApplication;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1263,7 +1263,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = TestApplication;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1288,7 +1288,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = IBApplication;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1311,7 +1311,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = IBApplication;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1334,7 +1334,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -1355,7 +1355,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1377,7 +1377,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = /Library/Frameworks;
 				PRODUCT_NAME = PSMTabBarFramework;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -1398,7 +1398,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = /Library/Frameworks;
 				PRODUCT_NAME = PSMTabBarFramework;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1424,7 +1424,7 @@
 				GCC_PREFIX_HEADER = PSMTabBar_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = PSMTabBar;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = ibplugin;
 				ZERO_LINK = YES;
 			};
@@ -1452,7 +1452,7 @@
 				GCC_PREFIX_HEADER = PSMTabBar_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = PSMTabBar;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = ibplugin;
 			};
 			name = Release;
@@ -1499,7 +1499,7 @@
 				GCC_MODEL_TUNING = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1515,7 +1515,7 @@
 				GCC_MODEL_TUNING = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
