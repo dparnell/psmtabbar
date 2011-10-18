@@ -1320,6 +1320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CODE_SIGN_IDENTITY = "Mac Developer: Daniel Parnell (B4Z669Y8WX)";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1334,6 +1335,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
+				PROVISIONING_PROFILE = "399797C1-C246-48D2-B01F-084EBB0A7D5B";
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 			};
@@ -1343,6 +1345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "Mac Developer: Daniel Parnell (B4Z669Y8WX)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1355,6 +1358,7 @@
 				INFOPLIST_FILE = "PSMTabBarFramework-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = PSMTabBarEmbedded;
+				PROVISIONING_PROFILE = "399797C1-C246-48D2-B01F-084EBB0A7D5B";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
