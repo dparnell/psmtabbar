@@ -29,6 +29,7 @@
         _closeButtonOver = NO;
         _closeButtonPressed = NO;
         _indicator = [[PSMProgressIndicator alloc] initWithFrame:NSMakeRect(0.0,0.0,kPSMTabBarIndicatorWidth,kPSMTabBarIndicatorWidth)];
+        [_indicator setControlSize: NSSmallControlSize];
         [_indicator setStyle:NSProgressIndicatorSpinningStyle];
         [_indicator setAutoresizingMask:NSViewMinYMargin];
         _hasCloseButton = YES;
