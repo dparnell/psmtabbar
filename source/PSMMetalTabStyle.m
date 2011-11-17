@@ -45,22 +45,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [metalCloseButton release];
-    [metalCloseButtonDown release];
-    [metalCloseButtonOver release];
-    [metalCloseDirtyButton release];
-    [metalCloseDirtyButtonDown release];
-    [metalCloseDirtyButtonOver release];
-    [_addTabButtonImage release];
-    [_addTabButtonPressedImage release];
-    [_addTabButtonRolloverImage release];
-    
-	[_objectCountStringAttributes release];
-	
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Control Specific
@@ -296,14 +280,14 @@
 - (NSAttributedString *)attributedObjectCountValueForTabCell:(PSMTabBarCell *)cell
 {
     NSString *contents = [NSString stringWithFormat:@"%i", [cell count]];
-    return [[[NSMutableAttributedString alloc] initWithString:contents attributes:_objectCountStringAttributes] autorelease];
+    return [[NSMutableAttributedString alloc] initWithString:contents attributes:_objectCountStringAttributes];
 }
 
 - (NSAttributedString *)attributedStringValueForTabCell:(PSMTabBarCell *)cell
 {
     NSMutableAttributedString *attrStr;
     NSString *contents = [cell stringValue];
-    attrStr = [[[NSMutableAttributedString alloc] initWithString:contents] autorelease];
+    attrStr = [[NSMutableAttributedString alloc] initWithString:contents];
     NSRange range = NSMakeRange(0, [contents length]);
     
     // Add font attribute
@@ -312,7 +296,7 @@
     
     // Add shadow attribute
     NSShadow* shadow;
-    shadow = [[[NSShadow alloc] init] autorelease];
+    shadow = [[NSShadow alloc] init];
     float shadowAlpha;
     if (([cell state] == NSOnState) || [cell isHighlighted]) {
         shadowAlpha = 0.8;
@@ -327,7 +311,7 @@
     // Paragraph Style for Truncating Long Text
     static NSMutableParagraphStyle *TruncatingTailParagraphStyle = nil;
     if (!TruncatingTailParagraphStyle) {
-        TruncatingTailParagraphStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] retain];
+        TruncatingTailParagraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         [TruncatingTailParagraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
         [TruncatingTailParagraphStyle setAlignment:NSCenterTextAlignment];
     }
@@ -587,12 +571,12 @@
         labelRect.origin.y += 4.0;
         NSMutableAttributedString *attrStr;
         NSString *contents = @"PSMTabBarControl";
-        attrStr = [[[NSMutableAttributedString alloc] initWithString:contents] autorelease];
+        attrStr = [[NSMutableAttributedString alloc] initWithString:contents];
         NSRange range = NSMakeRange(0, [contents length]);
         [attrStr addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0] range:range];
         NSMutableParagraphStyle *centeredParagraphStyle = nil;
         if (!centeredParagraphStyle) {
-            centeredParagraphStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] retain];
+            centeredParagraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
             [centeredParagraphStyle setAlignment:NSCenterTextAlignment];
         }
         [attrStr addAttribute:NSParagraphStyleAttributeName value:centeredParagraphStyle range:range];
@@ -634,15 +618,15 @@
    // self = [super initWithCoder:aDecoder];
     //if (self) {
         if ([aDecoder allowsKeyedCoding]) {
-            metalCloseButton = [[aDecoder decodeObjectForKey:@"metalCloseButton"] retain];
-            metalCloseButtonDown = [[aDecoder decodeObjectForKey:@"metalCloseButtonDown"] retain];
-            metalCloseButtonOver = [[aDecoder decodeObjectForKey:@"metalCloseButtonOver"] retain];
-            metalCloseDirtyButton = [[aDecoder decodeObjectForKey:@"metalCloseDirtyButton"] retain];
-            metalCloseDirtyButtonDown = [[aDecoder decodeObjectForKey:@"metalCloseDirtyButtonDown"] retain];
-            metalCloseDirtyButtonOver = [[aDecoder decodeObjectForKey:@"metalCloseDirtyButtonOver"] retain];
-            _addTabButtonImage = [[aDecoder decodeObjectForKey:@"addTabButtonImage"] retain];
-            _addTabButtonPressedImage = [[aDecoder decodeObjectForKey:@"addTabButtonPressedImage"] retain];
-            _addTabButtonRolloverImage = [[aDecoder decodeObjectForKey:@"addTabButtonRolloverImage"] retain];
+            metalCloseButton = [aDecoder decodeObjectForKey:@"metalCloseButton"];
+            metalCloseButtonDown = [aDecoder decodeObjectForKey:@"metalCloseButtonDown"];
+            metalCloseButtonOver = [aDecoder decodeObjectForKey:@"metalCloseButtonOver"];
+            metalCloseDirtyButton = [aDecoder decodeObjectForKey:@"metalCloseDirtyButton"];
+            metalCloseDirtyButtonDown = [aDecoder decodeObjectForKey:@"metalCloseDirtyButtonDown"];
+            metalCloseDirtyButtonOver = [aDecoder decodeObjectForKey:@"metalCloseDirtyButtonOver"];
+            _addTabButtonImage = [aDecoder decodeObjectForKey:@"addTabButtonImage"];
+            _addTabButtonPressedImage = [aDecoder decodeObjectForKey:@"addTabButtonPressedImage"];
+            _addTabButtonRolloverImage = [aDecoder decodeObjectForKey:@"addTabButtonRolloverImage"];
         }
     //}
     return self;
