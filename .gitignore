@@ -2,6 +2,5 @@ build
 _darcs
 *.mode1v3
 *.pbxuser
-.DS_Store
 .svn
 xcuserdata

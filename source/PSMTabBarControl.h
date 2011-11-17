@@ -163,14 +163,6 @@ enum {
 - (BOOL)canDragTabs;
 - (void)setCanDragTabs:(BOOL)flag;
 
-// accessors
-- (NSTabView *)tabView;
-- (void)setTabView:(NSTabView *)view;
-- (id)delegate;
-- (void)setDelegate:(id)object;
-- (id)partnerView;
-- (void)setPartnerView:(id)view;
-
 // the buttons
 - (PSMRolloverButton *)addTabButton;
 - (PSMOverflowPopUpButton *)overflowPopUpButton;
@@ -189,9 +181,9 @@ enum {
 - (void)bindPropertiesForCell:(PSMTabBarCell *)cell andTabViewItem:(NSTabViewItem *)item;
 - (void)removeTabForCell:(PSMTabBarCell *)cell;
 
-@property (retain) IBOutlet id delegate;
-@property (retain) IBOutlet id partnerView;
-@property (retain) IBOutlet NSTabView* tabView;
+@property (strong) IBOutlet id delegate;
+@property (strong) IBOutlet id partnerView;
+@property (strong) IBOutlet NSTabView* tabView;
 
 @end
 
