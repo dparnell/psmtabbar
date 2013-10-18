@@ -434,8 +434,7 @@
             closeButtonRect.origin.y += closeButtonRect.size.height;
         }
         
-        [closeButton compositeToPoint:closeButtonRect.origin operation:NSCompositeSourceOver fraction:1.0];
-        
+        [closeButton drawAtPoint: closeButtonRect.origin fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
         // scoot label over
         labelPosition += closeButtonSize.width + kPSMTabBarCellPadding;
     }
@@ -456,8 +455,7 @@
             iconRect.origin.y -= (kPSMTabBarIconWidth - [icon size].height) / 2.0;
         }
         
-        [icon compositeToPoint:iconRect.origin operation:NSCompositeSourceOver fraction:1.0];
-        
+        [icon drawAtPoint: iconRect.origin fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
         // scoot label over
         labelPosition += iconRect.size.width + kPSMTabBarCellPadding;
     }

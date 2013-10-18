@@ -628,7 +628,7 @@
 			drawingRect.origin.y += drawingRect.size.height;
 		}
 
-		[closeButtonOrIcon compositeToPoint:drawingRect.origin operation:NSCompositeSourceOver fraction:1.0];
+        [closeButtonOrIcon drawAtPoint: drawingRect.origin fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
 		
 		// scoot label over
 		switch (orientation)
@@ -666,7 +666,7 @@
 			iconRect.origin.y += iconRect.size.height;
 		}
 
-		[icon compositeToPoint:iconRect.origin operation:NSCompositeSourceOver fraction:1.0];
+        [icon drawAtPoint: iconRect.origin fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
 		
 		// scoot label over by the size of the standard close button
 		switch (orientation)

@@ -52,7 +52,7 @@
         drawPoint.y += imageSize.height;
     }
 	
-    [image compositeToPoint:drawPoint operation:NSCompositeSourceOver fraction:(_animatingAlternateImage ? 0.7f : 1.0f)];
+    [image drawAtPoint: drawPoint fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: (_animatingAlternateImage ? 0.7f : 1.0f)];
 	
 	if (_animatingAlternateImage) {
 		NSImage *alternateImage = [self alternateImage];
@@ -63,7 +63,7 @@
 			drawPoint.y += altImageSize.height;
 		}
 		
-		[[self alternateImage] compositeToPoint:drawPoint operation:NSCompositeSourceOver fraction:sin(_animationValue * M_PI)];
+        [[self alternateImage] drawAtPoint: drawPoint fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: sin(_animationValue * M_PI)];
 	}
 }
 
